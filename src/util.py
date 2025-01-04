@@ -34,7 +34,7 @@ def get_cfg(section: str, key: str, default_value = ''):
 
     # 因为ConfigParser限制变量名是小写的, 在读取config.ini的配置,对入参key做了小写转换
     parser = ConfigParser()
-    parser.read('./config/config.ini', encoding='utf-8')
+    parser.read('./config/config_backup.ini', encoding='utf-8')
     config_value = dict(parser.items(section))[key]
     if config_value:
         return config_value
