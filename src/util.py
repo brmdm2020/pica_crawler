@@ -43,7 +43,7 @@ def get_cfg(section: str, key: str, default_value = ''):
     return os.environ[key.upper()]
 
     # 最后取默认值作为兜底
-    return default_value
+    
 
 
 def get_latest_run_time():
