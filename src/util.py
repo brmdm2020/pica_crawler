@@ -34,16 +34,13 @@ def get_cfg(section: str, key: str, default_value = ''):
 
     # 因为ConfigParser限制变量名是小写的, 在读取config.ini的配置,对入参key做了小写转换
     parser = ConfigParser()
-    parser.read('./config/config_backup.ini', encoding='utf-8')
-    config_value = dict(parser.items(section))[key]
+    parser.read('./config/config.ini', encoding='utf-8')
+    config_value = dict(parser.items(section))[key.lower()]
     if config_value:
         return config_value
-#如果是用git actions方式部署,部分敏感信息不适合填进config.ini文件并上传至代码仓库,此时可以从从环境变量取值作为兜底
-    #ConfigParser读写配置项是按小写来的,但linux环境变量又是大小写敏感的.这里把入参key做了大写转换
-    return os.environ[key.upper()]
 
     # 最后取默认值作为兜底
-    
+    return default_value
 
 
 def get_latest_run_time():
