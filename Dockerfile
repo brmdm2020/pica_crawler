@@ -5,7 +5,7 @@ FROM python:3.8-slim
 WORKDIR /app
 
 # 安装系统依赖
-#RUN apt-get update && apt-get install -y build-essential
+RUN apt-get update && apt-get install -y build-essential
 
 # 设置环境变量
 ENV PACKAGE_TYPE="False" \
